@@ -3,7 +3,6 @@ using music_api_v2.Models;
 
 namespace  music_api_v2.Database;
 
-
 public class DatabaseService : InitialiseDatabase
 {
     public async Task<AlbumRow[]> SelectAllAlbums()

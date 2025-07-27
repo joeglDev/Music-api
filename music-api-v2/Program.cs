@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using music_api_v2.Database;
+using music_api_v2.Services;
 
 // seed database
 var dbSeeder = new DatabaseSeeder();
@@ -8,7 +9,13 @@ await dbSeeder.SeedDatabase();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
+// Register DatabaseService
+builder.Services.AddSingleton<DatabaseService>();
+
+// Register AlbumService
+builder.Services.AddScoped<IAlbumService, AlbumService>();
+
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen(c =>

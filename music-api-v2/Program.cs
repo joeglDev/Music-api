@@ -10,6 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalHost",
+        policy => policy
+            .WithOrigins("http://localhost:5173")
+            .WithMethods("GET", "POST", "PATCH", "DELETE")
+            .AllowAnyHeader()
+            .AllowCredentials());
+});
+
 // Register DatabaseService
 builder.Services.AddSingleton<DatabaseService>();
 
@@ -28,6 +39,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("AllowLocalHost");
     app.MapOpenApi();  // This adds the OpenAPI/Swagger endpoint
     app.UseSwagger();
     app.UseSwaggerUI(c =>

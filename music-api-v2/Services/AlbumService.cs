@@ -25,8 +25,24 @@ public class AlbumService(DatabaseService databaseService) :  IAlbumService
         var uniqueArtistsCount = albums.Select(x => x.Artist).Distinct().Count();
         var uniqueGenresCount = albums.Select(x => x.Genre).Distinct().Count();
         var uniqueAlbumsCount = albums.Length;
-        
-        return new BulkStatisticsResponse {numAlbums = uniqueAlbumsCount, numArtists = uniqueArtistsCount, numGenres = uniqueGenresCount};
 
+
+        var modalArtist = albums
+            .GroupBy(x => x.Artist)
+            .OrderByDescending(x => x.Count())
+            .First().Key;
+
+        var modalGenre = albums
+            .GroupBy(x => x.Genre)
+            .OrderByDescending(x => x.Count())
+            .First().Key;
+        
+        return new BulkStatisticsResponse {
+            NumberOfAlbums = uniqueAlbumsCount, 
+            NumberOfArtists = uniqueArtistsCount, 
+            NumberOfGenres = uniqueGenresCount,
+            ModalArtist = modalArtist,
+            ModalGenre = modalGenre
+        };
     }
 }

@@ -1,4 +1,9 @@
 using Microsoft.OpenApi.Models;
+using music_api_v2.Database;
+
+// seed database
+var dbSeeder = new DatabaseSeeder();
+await dbSeeder.SeedDatabase();
 
 var builder = WebApplication.CreateBuilder(args);
 

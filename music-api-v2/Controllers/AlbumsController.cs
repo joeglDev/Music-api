@@ -22,13 +22,14 @@ public class AlbumsController(IAlbumService albumService) : ControllerBase
     /// <summary>
     /// Returns statistics on the album collection
     /// </summary>
+    ///  <param name="owner">The owner whose albums to analyze</param>
     /// <returns></returns>
     [HttpGet]
-    [Route("api/albums/bulk-statistics")]
+    [Route("api/albums/bulk-statistics/{owner}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<BulkStatisticsResponse>> GetBulkStatistics()
+    public async Task<ActionResult<BulkStatisticsResponse>> GetBulkStatistics( AlbumOwners owner)
     {
-        var bulkStatistics = await albumService.HandleBulkStatistics();
+        var bulkStatistics = await albumService.HandleBulkStatistics(owner);
         return Ok(bulkStatistics);
     }
 }

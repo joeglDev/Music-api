@@ -6,7 +6,7 @@ namespace music_api_v2.Services;
 public interface IAlbumService
 {
     public Task<AlbumRow[]> HandleAllAlbumRows();
-    public Task<BulkStatisticsResponse> HandleBulkStatistics();
+    public Task<BulkStatisticsResponse> HandleBulkStatistics(AlbumOwners owner);
 }
 
 public class AlbumService(DatabaseService databaseService) :  IAlbumService
@@ -16,23 +16,23 @@ public class AlbumService(DatabaseService databaseService) :  IAlbumService
         var albums = await databaseService.SelectAllAlbums();
         return albums;
     }
-
-    // Todo add most common genre, artist
-    public async Task<BulkStatisticsResponse> HandleBulkStatistics()
+    
+    public async Task<BulkStatisticsResponse> HandleBulkStatistics(AlbumOwners owner)
     {
         var albums = await databaseService.SelectAllAlbums();
+        var filteredAlbums = owner == AlbumOwners.All ? albums : albums.Where(album => album.Owner == owner.ToString()).ToArray();
         
-        var uniqueArtistsCount = albums.Select(x => x.Artist).Distinct().Count();
-        var uniqueGenresCount = albums.Select(x => x.Genre).Distinct().Count();
-        var uniqueAlbumsCount = albums.Length;
+        var uniqueArtistsCount = filteredAlbums.Select(x => x.Artist).Distinct().Count();
+        var uniqueGenresCount = filteredAlbums.Select(x => x.Genre).Distinct().Count();
+        var uniqueAlbumsCount = filteredAlbums.Length;
 
 
-        var modalArtist = albums
+        var modalArtist = filteredAlbums
             .GroupBy(x => x.Artist)
             .OrderByDescending(x => x.Count())
             .First().Key;
 
-        var modalGenre = albums
+        var modalGenre = filteredAlbums
             .GroupBy(x => x.Genre)
             .OrderByDescending(x => x.Count())
             .First().Key;

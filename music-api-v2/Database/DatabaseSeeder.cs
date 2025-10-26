@@ -1,4 +1,5 @@
 using Dapper;
+using music_api_v2.Models;
 using music_api_v2.Utils;
 using Npgsql;
 
@@ -19,20 +20,20 @@ public class DatabaseSeeder : InitialiseDatabase
     {
         Console.WriteLine("Creating tables...");
         var createTableQuery = @"CREATE TABLE IF NOT EXISTS albums (
-    Catalog VARCHAR(50),
+    Catalog VARCHAR(75),
     Artist TEXT,
     Title TEXT,
-    Label VARCHAR(50),
-    Format VARCHAR(50),
-    Rating VARCHAR(50),
+    Label VARCHAR(75),
+    Format VARCHAR(75),
+    Rating VARCHAR(75),
     Released INTEGER,
     ReleaseId TEXT,
-    CollectionFolder VARCHAR(50),
+    CollectionFolder VARCHAR(75),
     DateAdded TIMESTAMP,
-    MediaCondition VARCHAR(50),
-    sleeveCondition VARCHAR(50),
-    Owner VARCHAR(50),
-    Genre VARCHAR(50)
+    MediaCondition VARCHAR(75),
+    sleeveCondition VARCHAR(75),
+    Owner VARCHAR(75),
+    Genre VARCHAR(75)
 );";
 
         await conn.ExecuteAsync(createTableQuery);

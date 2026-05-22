@@ -1,9 +1,5 @@
 import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
-
-const app = new Hono();
-
-app.get('/ping', (c) => c.text('pong'))
+import {app } from "./app.ts";
 
 serve({
   fetch: app.fetch,

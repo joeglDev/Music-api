@@ -1,16 +1,18 @@
 {
-  "name": "my-app",
   "type": "module",
   "scripts": {
+    "docs": "npx @rcmade/hono-docs generate --config ./hono-docs.ts",
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.14",
+    "@hono/swagger-ui": "^0.6.1",
     "hono": "^4.12.21"
   },
   "devDependencies": {
+    "@rcmade/hono-docs": "^1.0.32",
     "@types/node": "^20.11.17",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"

@@ -1,0 +1,78 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Hono discogs clone",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Documentation"
+    }
+  ],
+  "paths": {
+    "/api/ping": {
+      "get": {
+        "summary": "Auto-generated GET /api/ping",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "pong"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    },
+    "/api/docs/schema": {
+      "get": {
+        "summary": "Auto-generated GET /api/docs/schema",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    },
+    "/api/docs/ui": {
+      "get": {
+        "summary": "Auto-generated GET /api/docs/ui",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Hono discogs clone",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Documentation"
+    }
+  ],
+  "paths": {
+    "/api/ping": {
+      "get": {
+        "summary": "Auto-generated GET /api/ping",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "pong"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    },
+    "/api/auth/ping": {
+      "get": {
+        "summary": "Auto-generated GET /api/auth/ping",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "ping"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    },
+    "/api/docs/schema": {
+      "get": {
+        "summary": "Auto-generated GET /api/docs/schema",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    },
+    "/api/docs/ui": {
+      "get": {
+        "summary": "Auto-generated GET /api/docs/ui",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    },
+    "/api/albums": {
+      "get": {
+        "summary": "Auto-generated GET /api/albums",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Catalog": {
+                        "type": "string"
+                      },
+                      "Artist": {},
+                      "Title": {},
+                      "Label": {},
+                      "Format": {},
+                      "Rating": {},
+                      "Released": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "ReleaseId": {},
+                      "CollectionFolder": {},
+                      "DateAdded": {
+                        "oneOf": [
+                          {}
+                        ]
+                      },
+                      "MediaCondition": {},
+                      "SleeveCondition": {},
+                      "Owner": {},
+                      "Genre": {}
+                    },
+                    "required": [
+                      "Catalog",
+                      "Artist",
+                      "Title",
+                      "Label",
+                      "Format",
+                      "Rating",
+                      "Released",
+                      "ReleaseId",
+                      "CollectionFolder",
+                      "DateAdded",
+                      "MediaCondition",
+                      "SleeveCondition",
+                      "Owner",
+                      "Genre"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
+      }
+    }
+  }
+}

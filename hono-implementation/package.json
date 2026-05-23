@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "scripts": {
+    "docs": "npx @rcmade/hono-docs generate --config ./hono-docs.ts",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "format": "prettier . --write"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.14",
+    "@hono/swagger-ui": "^0.6.1",
+    "dotenv": "^17.4.2",
+    "hono": "^4.12.21",
+    "pg": "^8.21.0"
+  },
+  "devDependencies": {
+    "@rcmade/hono-docs": "^1.0.32",
+    "@types/node": "^20.11.17",
+    "@types/pg": "^8.20.0",
+    "prettier": "3.8.3",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,5 +1,8 @@
 import { serve } from "@hono/node-server";
 import { app } from "./app.ts";
+import { config } from "dotenv";
+
+config();
 
 serve(
   {

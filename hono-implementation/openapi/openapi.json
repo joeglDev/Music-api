@@ -25,13 +25,17 @@
               "application/json": {
                 "schema": {
                   "type": "string",
-                  "enum": ["pong"]
+                  "enum": [
+                    "pong"
+                  ]
                 }
               }
             }
           }
         },
-        "tags": ["Documentation"]
+        "tags": [
+          "Documentation"
+        ]
       }
     },
     "/api/auth/ping": {
@@ -44,13 +48,17 @@
               "application/json": {
                 "schema": {
                   "type": "string",
-                  "enum": ["ping"]
+                  "enum": [
+                    "ping"
+                  ]
                 }
               }
             }
           }
         },
-        "tags": ["Documentation"]
+        "tags": [
+          "Documentation"
+        ]
       }
     },
     "/api/docs/schema": {
@@ -66,7 +74,9 @@
             }
           }
         },
-        "tags": ["Documentation"]
+        "tags": [
+          "Documentation"
+        ]
       }
     },
     "/api/docs/ui": {
@@ -82,7 +92,76 @@
             }
           }
         },
-        "tags": ["Documentation"]
+        "tags": [
+          "Documentation"
+        ]
+      }
+    },
+    "/api/albums": {
+      "get": {
+        "summary": "Auto-generated GET /api/albums",
+        "responses": {
+          "default": {
+            "description": "Default fallback response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Catalog": {
+                        "type": "string"
+                      },
+                      "Artist": {},
+                      "Title": {},
+                      "Label": {},
+                      "Format": {},
+                      "Rating": {},
+                      "Released": {
+                        "oneOf": [
+                          {
+                            "type": "number"
+                          }
+                        ]
+                      },
+                      "ReleaseId": {},
+                      "CollectionFolder": {},
+                      "DateAdded": {
+                        "oneOf": [
+                          {}
+                        ]
+                      },
+                      "MediaCondition": {},
+                      "SleeveCondition": {},
+                      "Owner": {},
+                      "Genre": {}
+                    },
+                    "required": [
+                      "Catalog",
+                      "Artist",
+                      "Title",
+                      "Label",
+                      "Format",
+                      "Rating",
+                      "Released",
+                      "ReleaseId",
+                      "CollectionFolder",
+                      "DateAdded",
+                      "MediaCondition",
+                      "SleeveCondition",
+                      "Owner",
+                      "Genre"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Documentation"
+        ]
       }
     }
   }
